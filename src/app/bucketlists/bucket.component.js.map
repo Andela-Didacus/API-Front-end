@@ -1,0 +1,1 @@
+{"version":3,"file":"bucket.component.js","sourceRoot":"","sources":["bucket.component.ts"],"names":[],"mappings":";;;;;;;;AAAA,sCAA0C;AAO1C,IAAa,eAAe;IAA5B;IAA6B,CAAC;IAAD,sBAAC;AAAD,CAAC,AAA9B,IAA8B;AAAjB,eAAe;IAL3B,gBAAS,CAAC;QACP,QAAQ,EAAE,YAAY;QACtB,WAAW,EAAE,yBAAyB;QACtC,SAAS,EAAC,CAAC,wCAAwC,EAAC,wDAAwD,EAAC,wBAAwB,CAAC;KACzI,CAAC;GACW,eAAe,CAAE;AAAjB,0CAAe"}

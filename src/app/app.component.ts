@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from './services/users.service'
 
 export class Hero {
   id: number;
@@ -7,20 +8,9 @@ export class Hero {
 
 @Component({
   selector: 'my-app',
-  template: `
-    <h1>{{title}}</h1>
-    <h2>{{hero.name}} details!</h2>
-    <div><label>id: </label>{{hero.id}}</div>
-    <div>
-      <label>name: </label>
-      <input [(ngModel)]="hero.name" placeholder="name">
-    </div>
-    `
+  template:'<user-app></user-app>',
+  styleUrls: ['./app.component.css'],
+  providers: [UserService]
 })
 export class AppComponent {
-  title = 'Tour of Heroes';
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };
 }
