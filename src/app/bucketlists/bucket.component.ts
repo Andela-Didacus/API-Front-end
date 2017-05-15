@@ -20,6 +20,7 @@ export class BucketComponent implements OnInit{
     updatedname: any;
     itemname: any;
     url:any;
+    items:any = []; 
 
     constructor( private _dataservice: dataService,
                  private alertservice: AlertService,
@@ -85,6 +86,29 @@ export class BucketComponent implements OnInit{
                     this.alertservice.error(error._body);
                     this.loading = false;
                 });
+                
+    }
+
+    addBucketlist(){
+        this.model = {
+            "name":this.bucketname,
+            "items":this.items
+        }
+        console.log(this.model) 
+        this.loading = true;
+        this._dataservice.post('/bucketlists/',this.model)
+            .subscribe(
+                data => {
+                    this.alertservice.success('Bucketlist Successfully created', true);
+                    this.router.navigate(['/bucketlists']);
+                },
+                error => {
+                    this.alertservice.error(error._body);
+                    this.loading = false;
+                });
     }
 }
+
+
+
 

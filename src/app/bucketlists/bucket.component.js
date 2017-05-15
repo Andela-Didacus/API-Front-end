@@ -21,6 +21,7 @@ var BucketComponent = (function () {
         this.bucketlists = [];
         this.model = {};
         this.loading = false;
+        this.items = [];
     }
     BucketComponent.prototype.ngOnInit = function () {
         this.getBucketlists();
@@ -73,6 +74,23 @@ var BucketComponent = (function () {
             .subscribe(function (data) {
             _this.alertservice.success('Item Successfully created', true);
             _this.router.navigate(['/items', bucketlist.id]);
+        }, function (error) {
+            _this.alertservice.error(error._body);
+            _this.loading = false;
+        });
+    };
+    BucketComponent.prototype.addBucketlist = function () {
+        var _this = this;
+        this.model = {
+            "name": this.bucketname,
+            "items": this.items
+        };
+        console.log(this.model);
+        this.loading = true;
+        this._dataservice.post('/bucketlists/', this.model)
+            .subscribe(function (data) {
+            _this.alertservice.success('Bucketlist Successfully created', true);
+            _this.router.navigate(['/bucketlists']);
         }, function (error) {
             _this.alertservice.error(error._body);
             _this.loading = false;
