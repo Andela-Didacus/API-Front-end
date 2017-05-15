@@ -1,0 +1,130 @@
+<div class="container">
+<my-nav></my-nav>
+</div>
+<header id="top" class="header">
+<div class="container">
+   <div class="row me-row content-ct speaker" id="speakers">
+          <h2 class="row-title">Bucketlists Items</h2>
+          <div *ngIf= "items.length">
+            <div class="alert alert-info">
+                <strong><button type="button"  class="btn btn-success" data-toggle="modal" data-target="#addItem">Click To add New Item</button></strong>
+            </div>
+            <div *ngFor="let item of items">
+            <div class="col-md-4 col-sm-6 feature" >
+                <h3>{{item.name}}</h3>
+                <p>Date Created: {{item.date_created}}</p>
+                <div *ngIf="item.done === 'True'">
+                    <strong> Dream Achieved </strong>
+                </div>
+                <ul class="speaker-social">
+                    <div *ngIf="item.done === 'True'">
+                        <li><button type="button" class="btn btn-primary btn-block" (click)="undoItem(item)">Undo</button></li>
+                    </div>
+                    <div *ngIf="item.done === 'False'">
+                    <li><button type="button" class="btn btn-primary btn-block" (click)="Done(item)">Done</button></li> 
+                    </div> 
+                    <li><button type="button"  class="btn btn-success" data-toggle="modal" data-target="#editItem">Edit</button></li>
+                    <li><button type="button" class="btn btn-danger " (click)="deleteItem(item)">Delete</button></li>
+                </ul>
+            </div> 
+                <div id="editItem" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Bucketlist</h4>
+                </div>
+                <div class="modal-body">
+                    <p><p>Enter New Item Name</p>
+                        <form name="form" (submit)="updateItem(item)">
+                            <div class="form-group">
+                            <input class="form-control input-lg" id="inputdefault" type="text" name="updatedname" placeholder="New Name" [(ngModel)]="updatedname" >
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" type="submit" >Save</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+            </div>
+          </div>
+          <div *ngIf="!items.length">
+              <div class="alert alert-info">
+                <strong>NB!</strong> No Items Currently Added :).
+                <strong><button type="button"  class="btn btn-success" data-toggle="modal" data-target="#addItem">Click To Create New Item</button></strong>
+                </div>
+
+          </div>
+          <div id="addItem" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Bucketlist</h4>
+                </div>
+                <div class="modal-body">
+                    <p><p>Enter Item Name</p>
+                        <form name="form" (submit)="addItem()">
+                            <div class="form-group">
+                            <input class="form-control input-lg" id="inputdefault" type="text" name="itemname" placeholder="Item Name" [(ngModel)]="itemname" >
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" type="submit" >Save</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Call to Action -->
+<aside class="call-to-action bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3>Powered by Andela Kenya.</h3>
+                <a href="#" class="btn btn-lg btn-light">About</a>
+                <a href="#" class="btn btn-lg btn-dark">History</a>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<!-- Map -->
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 text-center">
+                <h4><strong>Andela</strong>
+                </h4>
+                <p>525 Kindaruma Road<br>Nairobi Kenya</p>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-phone fa-fw"></i> +254 707227990</li>
+                    <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="aseeyd@gmail.com">didacus@gmail.com</a>
+                    </li>
+                </ul>
+                <br>
+                <ul class="list-inline">
+                    <li>
+                        <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                    </li>
+                </ul>
+                <hr class="small">
+                <p class="text-muted">Copyright &copy; Your Website 2017</p>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,54 @@
+<my-nav></my-nav>
+<header id="top" class="header">
+    <div class="text-vertical-center">
+        <h1>My Bucketlist</h1>
+        <h3>Dream and Achieve</h3>
+        <h1>Welcome {{currentUser.id}}!</h1>
+        <br>
+        <button type="button" [routerLink]="['/addbucket']" class="btn btn-primary btn-lg">Create New Bucketlist</button>
+        <button type="button" [routerLink]="['/bucketlists']" class="btn btn-primary btn-lg">My Bucketlists</button>
+    </div>
+</header>
+
+<aside class="call-to-action bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3>Powered by Andela Kenya.</h3>
+                <a href="#" class="btn btn-lg btn-light">About</a>
+                <a href="#" class="btn btn-lg btn-dark">History</a>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 text-center">
+                <h4><strong>Andela</strong>
+                </h4>
+                <p>525 Kindaruma Road<br>Nairobi Kenya</p>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-phone fa-fw"></i> +254 707227990</li>
+                    <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="aseeyd@gmail.com">didacus@gmail.com</a>
+                    </li>
+                </ul>
+                <br>
+                <ul class="list-inline">
+                    <li>
+                        <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                    </li>
+                </ul>
+                <hr class="small">
+                <p class="text-muted">Copyright &copy; Your Website 2017</p>
+            </div>
+        </div>
+    </div>
+</footer>
