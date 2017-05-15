@@ -7,34 +7,40 @@
             <h1 class="text-center">Register</h1>
         </div>
         <div class="modal-body">
-            <form class="form col-md-12 center-block">
+            <form class="form col-md-12 center-block" name="form" (submit)="register()">
                 <div class="form-group">
-                <input type="text" class="form-control input-lg" placeholder="First Name">
+                <input type="text" class="form-control input-lg" name="first_name" [(ngModel)]="first_name"  required placeholder="First Name">
+                <!--<div *ngIf="f.submitted && !first_name.valid" class="help-block">Enter First Name</div>-->
                 </div>
                 <div class="form-group">
-                <input type="text" class="form-control input-lg" placeholder="Last Name">
+                <input type="text" class="form-control input-lg" name="last_name" [(ngModel)]="last_name"  required placeholder="Last Name">
+                <!--<div *ngIf="f.submitted && !last_name.valid" class="help-block">Enter Last Name</div>-->
                 </div>
                 <div class="form-group">
-                <input type="text" class="form-control input-lg" placeholder="Gender">
+                <input type="text" class="form-control input-lg" name="gender" [(ngModel)]="gender"  required placeholder="Gender">
+                <!--<div *ngIf="f.submitted && !gender.valid" class="help-block">Enter Gender</div>-->
                 </div>
                 <div class="form-group">
-                <input type="text" class="form-control input-lg" placeholder="Email">
+                <input type="text" class="form-control input-lg" name="email" [(ngModel)]="email" required placeholder="Email">
+                <!--<div *ngIf="f.submitted && !email.valid" class="help-block">Enter Email</div>-->
                 </div>
                 <div class="form-group">
-                <input type="text" class="form-control input-lg" placeholder="Username">
+                <input type="text" class="form-control input-lg" name="username" [(ngModel)]="username" required placeholder="Username">
+                <!--<div *ngIf="f.submitted && !username.valid" class="help-block">Enter Username</div>-->
                 </div>
                 <div class="form-group">
-                <input type="password" class="form-control input-lg" placeholder="Password">
+                <input type="password" class="form-control input-lg" name="password" [(ngModel)]="password"  required placeholder="Password">
+                <!--<div *ngIf="f.submitted && !password.valid" class="help-block">Enter Password</div>-->
                 </div>
                 <div class="form-group">
-                <button class="btn btn-primary btn-lg btn-block">Sign Up</button>
-                <span class="pull-right"><a href="#">Login</a></span><span><a href="#">Need help?</a></span>
+                <button class="btn btn-primary btn-lg btn-block" [disabled]="loading" type="submit">Sign Up</button>
+                <span class="pull-right"><a [routerLink]="['/login']">Login</a></span><span><a href="#">Need help?</a></span>
                 </div>
             </form>
         </div>
         <div class="modal-footer">
             <div class="col-md-12">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true" [routerLink]="['/login']">Cancel</button>
             </div>	
         </div>
     </div>

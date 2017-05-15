@@ -1,0 +1,20 @@
+<my-nav></my-nav>
+
+<header id="top" class="header2">
+    <div class="container center-div">
+      <div class="modal-content">
+        <form name="form" (submit)="addItem()">
+        <div class="form-group center-block col-xs-4 col-offset-6">
+          <br/><br/>
+            <p>Enter Item Name</p>
+            <input class="form-control input-lg" id="inputdefault" type="text" name="itemname" [(ngModel)]="itemname" placeholder="Item Name">
+            <ul class="speaker-social">
+                <li><button type="button" class="btn btn-primary" type="submit">Add</button></li>
+              <li><button type="button" class="btn btn-danger " [routerLink]="['/bucketlits']">Cancel</button></li>
+            </ul>
+        </div>
+        
+        </form>
+      </div> 
+    </div>
+</header>

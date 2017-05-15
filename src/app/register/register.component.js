@@ -5,11 +5,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var user_service_1 = require("../services/user.service");
+var alert_service_1 = require("../services/alert.service");
 var RegisterComponent = (function () {
-    function RegisterComponent() {
+    function RegisterComponent(router, userService, alertService) {
+        this.router = router;
+        this.userService = userService;
+        this.alertService = alertService;
+        this.model = {};
+        this.loading = false;
     }
+    RegisterComponent.prototype.register = function () {
+        var _this = this;
+        this.model = {
+            "first name": this.first_name,
+            "last name": this.last_name,
+            "gender": this.gender,
+            "email": this.email,
+            "username": this.username,
+            "password": this.password
+        };
+        console.log(this.model);
+        this.loading = true;
+        this.userService.create(this.model)
+            .subscribe(function (data) {
+            _this.alertService.success('Registration successful', true);
+            _this.router.navigate(['/login']);
+        }, function (error) {
+            _this.alertService.error(error._body);
+            _this.loading = false;
+        });
+    };
     return RegisterComponent;
 }());
 RegisterComponent = __decorate([
@@ -17,7 +49,10 @@ RegisterComponent = __decorate([
         selector: 'register-app',
         templateUrl: './register.component.html',
         styleUrls: ['./register.component.css']
-    })
+    }),
+    __metadata("design:paramtypes", [router_1.Router,
+        user_service_1.UserService,
+        alert_service_1.AlertService])
 ], RegisterComponent);
 exports.RegisterComponent = RegisterComponent;
 //# sourceMappingURL=register.component.js.map

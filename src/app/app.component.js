@@ -21,8 +21,9 @@ var AppComponent = (function () {
 }());
 AppComponent = __decorate([
     core_1.Component({
+        moduleId: module.id,
         selector: 'my-app',
-        template: '<user-app></user-app>',
+        templateUrl: './app.component.html',
         styleUrls: ['./app.component.css'],
         providers: [users_service_1.UserService]
     })
