@@ -86,7 +86,5 @@ export class BucketComponent implements OnInit{
                     this.loading = false;
                 });
     }
-    }
-
-
 }
+
