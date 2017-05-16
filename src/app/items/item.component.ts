@@ -39,7 +39,7 @@ export class ItemComponent{
     }
 
     getallItems(id:any){
-        this.url = '/bucketlists/' + id + '/items/';
+        this.url = '/api/v1/bucketlists/' + id + '/items/';
         this._dataservice.get(this.url)
             .subscribe(items => { this.items = items.items;
             console.log(items) });
@@ -52,7 +52,7 @@ export class ItemComponent{
             "name":this.updatedname,
             "done":item.done
         }
-        this.url = '/bucketlists/' + this.id + '/items/' + item.id + '/';
+        this.url = '/api/v1/bucketlists/' + this.id + '/items/' + item.id + '/';
         this.loading = true;
         this._dataservice.put(this.url, this.model)
             .subscribe(
@@ -68,7 +68,7 @@ export class ItemComponent{
     }
 
     deleteItem(item:any){
-        this.url = '/bucketlists/' + this.id + '/items/' + item.id + '/';
+        this.url = '/api/v1/bucketlists/' + this.id + '/items/' + item.id + '/';
         this._dataservice.delete(this.url)
             .subscribe(
                     data => {
@@ -88,7 +88,7 @@ export class ItemComponent{
             "name":item.name,
             "done":"False"
         }
-        this.url = '/bucketlists/' + this.id + '/items/' + item.id + '/';
+        this.url = '/api/v1/bucketlists/' + this.id + '/items/' + item.id + '/';
         this.loading = true;
         this._dataservice.put(this.url, this.model)
             .subscribe(
@@ -108,7 +108,7 @@ export class ItemComponent{
             "name":item.name,
             "done":"True"
         }
-        this.url = '/bucketlists/' + this.id + '/items/' + item.id + '/';
+        this.url = '/api/v1/bucketlists/' + this.id + '/items/' + item.id + '/';
         this.loading = true;
         this._dataservice.put(this.url, this.model)
             .subscribe(
@@ -130,7 +130,7 @@ export class ItemComponent{
         }
         console.log(this.model) 
         this.loading = true;
-        this.url = '/bucketlists/' + this.id + '/items/';
+        this.url = '/api/v1/bucketlists/' + this.id + '/items/';
         this._dataservice.post(this.url,this.model)
             .subscribe(
                 data => {

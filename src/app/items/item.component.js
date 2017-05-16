@@ -33,7 +33,7 @@ var ItemComponent = (function () {
     };
     ItemComponent.prototype.getallItems = function (id) {
         var _this = this;
-        this.url = '/bucketlists/' + id + '/items/';
+        this.url = '/api/v1/bucketlists/' + id + '/items/';
         this._dataservice.get(this.url)
             .subscribe(function (items) {
             _this.items = items.items;
@@ -46,7 +46,7 @@ var ItemComponent = (function () {
             "name": this.updatedname,
             "done": item.done
         };
-        this.url = '/bucketlists/' + this.id + '/items/' + item.id + '/';
+        this.url = '/api/v1/bucketlists/' + this.id + '/items/' + item.id + '/';
         this.loading = true;
         this._dataservice.put(this.url, this.model)
             .subscribe(function (data) {
@@ -60,7 +60,7 @@ var ItemComponent = (function () {
     };
     ItemComponent.prototype.deleteItem = function (item) {
         var _this = this;
-        this.url = '/bucketlists/' + this.id + '/items/' + item.id + '/';
+        this.url = '/api/v1/bucketlists/' + this.id + '/items/' + item.id + '/';
         this._dataservice.delete(this.url)
             .subscribe(function (data) {
             _this.alertservice.success('Item successfully Deleted', true);
@@ -77,7 +77,7 @@ var ItemComponent = (function () {
             "name": item.name,
             "done": "False"
         };
-        this.url = '/bucketlists/' + this.id + '/items/' + item.id + '/';
+        this.url = '/api/v1/bucketlists/' + this.id + '/items/' + item.id + '/';
         this.loading = true;
         this._dataservice.put(this.url, this.model)
             .subscribe(function (data) {
@@ -95,7 +95,7 @@ var ItemComponent = (function () {
             "name": item.name,
             "done": "True"
         };
-        this.url = '/bucketlists/' + this.id + '/items/' + item.id + '/';
+        this.url = '/api/v1/bucketlists/' + this.id + '/items/' + item.id + '/';
         this.loading = true;
         this._dataservice.put(this.url, this.model)
             .subscribe(function (data) {
@@ -115,7 +115,7 @@ var ItemComponent = (function () {
         };
         console.log(this.model);
         this.loading = true;
-        this.url = '/bucketlists/' + this.id + '/items/';
+        this.url = '/api/v1/bucketlists/' + this.id + '/items/';
         this._dataservice.post(this.url, this.model)
             .subscribe(function (data) {
             _this.alertservice.success('Item Successfully created', true);

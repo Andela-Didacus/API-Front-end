@@ -28,7 +28,7 @@ var BucketComponent = (function () {
     };
     BucketComponent.prototype.getBucketlists = function () {
         var _this = this;
-        this._dataservice.get('/bucketlists/')
+        this._dataservice.get('/api/v1/bucketlists/')
             .subscribe(function (bucketlists) {
             _this.bucketlists = bucketlists.bucketlists;
             console.log(bucketlists);
@@ -41,7 +41,7 @@ var BucketComponent = (function () {
         };
         this.loading = true;
         console.log(this.model);
-        this._dataservice.put('/bucketlists/' + bucketlist.id + '/', this.model)
+        this._dataservice.put('/api/v1/bucketlists/' + bucketlist.id + '/', this.model)
             .subscribe(function (data) {
             _this.alertservice.success('Bucketlist Updated successfully', true);
             _this.getBucketlists();
@@ -52,7 +52,7 @@ var BucketComponent = (function () {
     };
     BucketComponent.prototype.deleteBucketlist = function (bucketlist) {
         var _this = this;
-        this._dataservice.delete('/bucketlists/' + bucketlist.id + '/')
+        this._dataservice.delete('/api/v1/bucketlists/' + bucketlist.id + '/')
             .subscribe(function (data) {
             _this.alertservice.success('Bucketlist successfully Deleted', true);
             _this.getBucketlists();
@@ -69,7 +69,7 @@ var BucketComponent = (function () {
         };
         console.log(this.model);
         this.loading = true;
-        this.url = '/bucketlists/' + bucketlist.id + '/items/';
+        this.url = '/api/v1/bucketlists/' + bucketlist.id + '/items/';
         this._dataservice.post(this.url, this.model)
             .subscribe(function (data) {
             _this.alertservice.success('Item Successfully created', true);
@@ -87,7 +87,7 @@ var BucketComponent = (function () {
         };
         console.log(this.model);
         this.loading = true;
-        this._dataservice.post('/bucketlists/', this.model)
+        this._dataservice.post('/api/v1/bucketlists/', this.model)
             .subscribe(function (data) {
             _this.alertservice.success('Bucketlist Successfully created', true);
             _this.router.navigate(['/bucketlists']);

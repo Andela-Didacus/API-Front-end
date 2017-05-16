@@ -28,7 +28,7 @@ export class AddBucketComponent {
         }
         console.log(this.model) 
         this.loading = true;
-        this.dataservice.post('/bucketlists/',this.model)
+        this.dataservice.post('/api/v1/bucketlists/',this.model)
             .subscribe(
                 data => {
                     this.alertService.success('Bucketlist Successfully created', true);

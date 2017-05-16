@@ -30,7 +30,7 @@ export class BucketComponent implements OnInit{
     }
 
     getBucketlists(){
-        this._dataservice.get('/bucketlists/')
+        this._dataservice.get('/api/v1/bucketlists/')
             .subscribe(bucketlists => { this.bucketlists = bucketlists.bucketlists;
             console.log(bucketlists) });
             
@@ -43,7 +43,7 @@ export class BucketComponent implements OnInit{
         }
         this.loading = true;
         console.log(this.model)
-        this._dataservice.put('/bucketlists/'+ bucketlist.id + '/', this.model)
+        this._dataservice.put('/api/v1/bucketlists/'+ bucketlist.id + '/', this.model)
             .subscribe(
                 data => {
                     this.alertservice.success('Bucketlist Updated successfully', true);
@@ -56,7 +56,7 @@ export class BucketComponent implements OnInit{
     }
 
     deleteBucketlist(bucketlist:any){
-        this._dataservice.delete('/bucketlists/' + bucketlist.id + '/')
+        this._dataservice.delete('/api/v1/bucketlists/' + bucketlist.id + '/')
             .subscribe(
                     data => {
                         this.alertservice.success('Bucketlist successfully Deleted', true);
@@ -75,7 +75,7 @@ export class BucketComponent implements OnInit{
         }
         console.log(this.model) 
         this.loading = true;
-        this.url = '/bucketlists/' + bucketlist.id + '/items/';
+        this.url = '/api/v1/bucketlists/' + bucketlist.id + '/items/';
         this._dataservice.post(this.url,this.model)
             .subscribe(
                 data => {
@@ -96,7 +96,7 @@ export class BucketComponent implements OnInit{
         }
         console.log(this.model) 
         this.loading = true;
-        this._dataservice.post('/bucketlists/',this.model)
+        this._dataservice.post('/api/v1/bucketlists/',this.model)
             .subscribe(
                 data => {
                     this.alertservice.success('Bucketlist Successfully created', true);
