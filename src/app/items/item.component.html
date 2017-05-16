@@ -24,7 +24,7 @@
                     <div *ngIf="item.done === 'False'">
                     <li><button type="button" class="btn btn-primary btn-block" (click)="Done(item)">Done</button></li> 
                     </div> 
-                    <li><button type="button"  class="btn btn-success" data-toggle="modal" data-target="#editItem">Edit</button></li>
+                    <li><button type="button"  class="btn btn-success" (click)="assignId(item)"data-toggle="modal" data-target="#editItem">Edit</button></li>
                     <li><button type="button" class="btn btn-danger " (click)="deleteItem(item)">Delete</button></li>
                 </ul>
             </div> 
@@ -37,13 +37,14 @@
                 </div>
                 <div class="modal-body">
                     <p><p>Enter New Item Name</p>
+                    <alert></alert>
                         <form name="form" (submit)="updateItem(item)">
                             <div class="form-group">
                             <input class="form-control input-lg" id="inputdefault" type="text" name="updatedname" placeholder="New Name" [(ngModel)]="updatedname" >
                             </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" type="submit" >Save</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" (click)="getAll()"  data-dismiss="modal">Close</button>
                         </div>
                         </form>
                     </div>
@@ -75,7 +76,7 @@
                             </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" type="submit" >Save</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" (click)="getAll()" data-dismiss="modal">Close</button>
                         </div>
                         </form>
                     </div>

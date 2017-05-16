@@ -46,25 +46,31 @@ export class ItemComponent{
             
             
     }
+    assignId(item:any){
+        this.itemid = item.id;
+    }
 
     updateItem(item:any){
         this.model = {
             "name":this.updatedname,
             "done":item.done
         }
-        this.url = '/api/v1/bucketlists/' + this.id + '/items/' + item.id + '/';
+        this.url = '/api/v1/bucketlists/' + this.id + '/items/' + this.itemid + '/';
         this.loading = true;
         this._dataservice.put(this.url, this.model)
             .subscribe(
                 data => {
                     this.alertservice.success('Items Updated successfully', true);
-                    this.getallItems(this.id);
-                    this.router.navigate(['/items',this.id]);
+                    // this.getallItems(this.id);
+                    this.router.navigate(['/items', this.id])
                 },
                 error => {
                     this.alertservice.error(error._body);
                     this.loading = false;
                 });
+    }
+    getAll(){
+        this.getallItems(this.id);
     }
 
     deleteItem(item:any){

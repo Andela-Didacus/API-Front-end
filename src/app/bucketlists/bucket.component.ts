@@ -36,18 +36,21 @@ export class BucketComponent implements OnInit{
             
             
     }
-
+    assignId(bucketlist:any){
+        this.bucketid = bucketlist.id;
+    }
     updateBucketlist(bucketlist:any ){
         this.model = {
             "name":this.updatedname
         }
         this.loading = true;
         console.log(this.model)
-        this._dataservice.put('/api/v1/bucketlists/'+ bucketlist.id + '/', this.model)
+        this._dataservice.put('/api/v1/bucketlists/'+ this.bucketid + '/', this.model)
             .subscribe(
                 data => {
                     this.alertservice.success('Bucketlist Updated successfully', true);
-                    this.getBucketlists();
+                    // this.getBucketlists();
+                    this.router.navigate(['/bucketlists']);
                 },
                 error => {
                     this.alertservice.error(error._body);
@@ -61,6 +64,7 @@ export class BucketComponent implements OnInit{
                     data => {
                         this.alertservice.success('Bucketlist successfully Deleted', true);
                         this.getBucketlists();
+                        this.router.navigate(['/bucketlists']);
                     },
                     error => {
                         this.alertservice.error(error._body);

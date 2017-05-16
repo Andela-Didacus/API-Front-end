@@ -43,6 +43,7 @@ export class dataService {
     put(url:string, body:any){
         let option = this.header();
         console.log(option)
+        console.log(url)
         return this.http.put(this._url + url ,body, option)
             .map(this.retrieveData);
     }
