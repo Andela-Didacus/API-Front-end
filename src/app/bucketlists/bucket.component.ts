@@ -100,6 +100,7 @@ export class BucketComponent implements OnInit{
             .subscribe(
                 data => {
                     this.alertservice.success('Bucketlist Successfully created', true);
+                    this.getBucketlists();
                     this.router.navigate(['/bucketlists']);
                 },
                 error => {

@@ -90,6 +90,7 @@ var BucketComponent = (function () {
         this._dataservice.post('/api/v1/bucketlists/', this.model)
             .subscribe(function (data) {
             _this.alertservice.success('Bucketlist Successfully created', true);
+            _this.getBucketlists();
             _this.router.navigate(['/bucketlists']);
         }, function (error) {
             _this.alertservice.error(error._body);
