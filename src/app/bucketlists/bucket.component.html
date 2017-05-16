@@ -4,6 +4,10 @@
    <div class="row me-row content-ct speaker" id="speakers">
           <h2 class="row-title">My Bucketlists</h2>
           <div *ngIf="bucketlists.length">
+              <div class="alert alert-info">
+                <strong><button type="button"  class="btn btn-success" [routerLink]="['/']">Back</button></strong>
+                <strong><button type="button"  class="btn btn-success" data-toggle="modal" data-target="#addBucket">Click To Create Add New Bucketlist</button></strong>
+            </div>
           <div *ngFor="let bucketlist of bucketlists">
           <div class="col-md-4 col-sm-6 feature" >
             <h3>{{bucketlist.name}}</h3>
@@ -30,8 +34,8 @@
                           <input class="form-control input-lg" id="inputdefault" type="text" name="updatedname" placeholder="updatedname" [(ngModel)]="updatedname" >
                         </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-default" type="submit" [routerLink]="['/bucketlists']">Save</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-default" type="submit">Save</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                       </div>
                     </form>
                 </div>
@@ -55,8 +59,8 @@
                           <input class="form-control input-lg" id="inputdefault" type="text" name="itemname" placeholder="Item Name" [(ngModel)]="itemname" >
                         </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-default" type="submit" [routerLink]="['/bucketlists']">Save</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-default" type="submit">Save</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                       </div>
                     </form>
                 </div>
@@ -87,7 +91,7 @@
                             </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" type="submit" >Save</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </form>
                     </div>

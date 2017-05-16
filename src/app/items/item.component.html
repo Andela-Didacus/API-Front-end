@@ -7,6 +7,7 @@
           <h2 class="row-title">Bucketlists Items</h2>
           <div *ngIf= "items.length">
             <div class="alert alert-info">
+                <strong><button type="button"  class="btn btn-success" [routerLink]="['/bucketists']">Back</button></strong>
                 <strong><button type="button"  class="btn btn-success" data-toggle="modal" data-target="#addItem">Click To add New Item</button></strong>
             </div>
             <div *ngFor="let item of items">
@@ -42,7 +43,7 @@
                             </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" type="submit" >Save</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </form>
                     </div>
@@ -74,7 +75,7 @@
                             </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" type="submit" >Save</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </form>
                     </div>
