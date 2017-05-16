@@ -3,6 +3,7 @@
   <div class="container">
    <div class="row me-row content-ct speaker" id="speakers">
           <h2 class="row-title">My Bucketlists</h2>
+          <div *ngIf="bucketlists.length">
           <div *ngFor="let bucketlist of bucketlists">
           <div class="col-md-4 col-sm-6 feature" >
             <h3>{{bucketlist.name}}</h3>
@@ -64,6 +65,36 @@
           </div>
 
         </div>
+      </div>
+      <div *ngIf="!bucketlists.length">
+        <div class="alert alert-info">
+            <strong>NB!</strong> No Bucketlists Currently Added :).
+            <strong><button type="button"  class="btn btn-success" data-toggle="modal" data-target="#addBucket">Click To Create Add New Bucketlist</button></strong>
+        </div>
+      </div>
+      <div id="addBucket" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Bucketlist</h4>
+                </div>
+                <div class="modal-body">
+                    <p><p>Enter Bucketlist Name</p>
+                        <form name="form" (submit)="addBucketlist()">
+                            <div class="form-group">
+                            <input class="form-control input-lg" id="inputdefault" type="text" name="bucketname" placeholder="Bucketlist Name" [(ngModel)]="bucketname" >
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" type="submit" >Save</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+
+                </div>
+            </div>
     </div>
   </div>
 </header>

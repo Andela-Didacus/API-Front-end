@@ -30,7 +30,7 @@ var AddBucketComponent = (function () {
         };
         console.log(this.model);
         this.loading = true;
-        this.dataservice.post('/bucketlists/', this.model)
+        this.dataservice.post('/api/v1/bucketlists/', this.model)
             .subscribe(function (data) {
             _this.alertService.success('Bucketlist Successfully created', true);
             _this.router.navigate(['/bucketlists']);

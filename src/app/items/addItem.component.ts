@@ -29,7 +29,7 @@ export class AddItemComponent {
         }
         console.log(this.model) 
         this.loading = true;
-        this.url = '/bucketlists/' + this.bucketid + '/items/';
+        this.url = '/api/v1/bucketlists/' + this.bucketid + '/items/';
         this.dataservice.post(this.url,this.model)
             .subscribe(
                 data => {
